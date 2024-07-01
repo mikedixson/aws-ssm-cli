@@ -19,12 +19,12 @@
     - If the instance is not found in the default regions, the user is prompted to input a region.
 
 .EXAMPLE
-    .\ssm.ps1 -hostname "my-ec2-instance" -profile "my-profile"
-    Connects to the EC2 instance with the hostname "my-ec2-instance" using the AWS CLI profile "my-profile".
+    .\ssm.ps1 my-ec2-instance my-profile
+    Connects to the EC2 instance with the hostname my-ec2-instance using the AWS CLI profile my-profile.
 
 .EXAMPLE
-    .\ssm.ps1 -hostname "my-ec2-instance"
-    Connects to the EC2 instance with the hostname "my-ec2-instance" using the default AWS CLI profile.
+    .\ssm.ps1 my-ec2-instance
+    Connects to the EC2 instance with the hostname my-ec2-instance using the default AWS CLI profile.
 
 #>
 
@@ -71,5 +71,5 @@ if (-not $instanceId) {
 } else {
     $arguments = @("ssm", "start-session", "--target", $instanceId, "--region", $region) + $profileArgument
     
-    Start-Process $awsCommand -ArgumentList $arguments -NoNewWindow -Wait
+    &$awsCommand $arguments
 }
