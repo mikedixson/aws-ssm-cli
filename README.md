@@ -15,9 +15,10 @@
     The AWS CLI profile to use for authentication. If not specified, the default profile is used.
 
 #### NOTES
-    - This script requires the AWS CLI to be installed and configured on the machine.
-    - The script searches for the instance in the regions specified in the $regions array.
-    - If the instance is not found in the default regions, the user is prompted to input a region.
+- This script requires the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) to be installed and configured on the machine.
+- This script requires the [AWS Session Manager Plugin](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html) to be installed 
+- The script searches for the instance in the regions specified in the $regions array.
+- If the instance is not found in the default regions, the user is prompted to input a region.
 
 #### EXAMPLE with Named Profile
     .\ssm.ps1 my-ec2-instance my-profile
